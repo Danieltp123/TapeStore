@@ -62,4 +62,8 @@ public class Rent {
 		return dotz;
 	}
 	
+	public String getTapeTitle() {
+		return this.tape.getTitle();
+	}
+	
 }
