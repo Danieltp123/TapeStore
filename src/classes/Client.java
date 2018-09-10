@@ -16,7 +16,8 @@ public class Client {
 		return name;
 	}
 	
-	public void addRent(Rent rent) {
+	public void addRent(Tape tape, int days) {
+		Rent rent = new Rent(tape, days);
 		this.leasedTapes.add(rent);
 	}
 	
@@ -27,57 +28,20 @@ public class Client {
         
         double amount = 0.0;
         
-        int pointsOfHirer = 0;
+        int dotz = 0;
         
         for (Rent rent : leasedTapes) {
 
-            double currentValue = 0.0;
-            
-            switch (rent.getTape().getIdPrice()) {
-            
-				case normal:
-					
-					currentValue += 2;
-					
-					if (rent.getRentedDays() > 2) {
-						currentValue += ((rent.getRentedDays() - 2) * 1.5);
-					}
-					
-				break;
-					
-				case launch:
-					
-					currentValue += (rent.getRentedDays() * 3);
-					
-				break;
-					
-				case childlike:
-					
-					currentValue += 1.5;
-					
-					if (rent.getRentedDays() > 3) {
-						currentValue += ((rent.getRentedDays() - 3) * 1.5);
-					}
-					
-				break;
-				
-			}
-            
-            pointsOfHirer++;
-            
-            if (rent.getTape().getIdPrice() == Tape.Type.launch && rent.getRentedDays() > 1) {
-				pointsOfHirer++;
-			}
-            
+            double currentValue = rent.getSubtotal();
+            dotz += rent.getDotz();
+
             result += "\t" + rent.getTape().getTitle() + "\t" + currentValue + endLine;
-           
             amount += currentValue;
-
-
+            
         }
         
         result += "Valor total devido: " + amount + endLine;
-        result += "Voce acumulou " + pointsOfHirer + " pontos de alugador frequente";
+        result += "Voce acumulou " + dotz + " pontos de alugador frequente";
         
         return result;
     }
