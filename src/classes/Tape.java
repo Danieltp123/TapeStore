@@ -1,29 +1,26 @@
 package classes;
 
-public class Tape {
-
-	public enum Type {
-		normal, launch, childlike
-	}
-
-	private String title;
-	private Type idPrice;
-
-	public Tape(String title, Type idPrice) {
-		this.title = title;
-		this.idPrice = idPrice;
-	}
+public abstract class Tape {
 	
+	private String title;
+	private Double price;
+	
+	public Tape(String title, Double price) {
+		super();
+		this.title = title;
+		this.price = price;
+	}
+
+	public abstract Double getFineAmount(int days);
+	
+	public abstract int generateDotz(int days);
+
 	public String getTitle() {
 		return title;
 	}
 
-	public Type getIdPrice() {
-		return idPrice;
-	}
-
-	public void setIdPrice(Type idPrice) {
-		this.idPrice = idPrice;
+	public Double getPrice() {
+		return price;
 	}
 
 }

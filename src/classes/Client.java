@@ -35,7 +35,7 @@ public class Client {
             double currentValue = rent.getSubtotal();
             dotz += rent.getDotz();
 
-            result += "\t" + rent.getTapeTitle() + "\t" + currentValue + endLine;
+            result += "\t" + rent.getTape().getTitle() + "\t" + currentValue + endLine;
             amount += currentValue;
             
         }
