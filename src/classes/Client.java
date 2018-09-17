@@ -39,11 +39,8 @@ public class Client {
             amount += currentValue;
             
         }
-        
         result += "Valor total devido: " + amount + endLine;
         result += "Voce acumulou " + dotz + " pontos de alugador frequente";
-        
         return result;
     }
-
 }
