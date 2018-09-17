@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
-	
 	private String name;
 	private List<Rent> leasedTapes = new ArrayList<Rent>();
 	
@@ -31,7 +30,6 @@ public class Client {
         int dotz = 0;
         
         for (Rent rent : leasedTapes) {
-
             double currentValue = rent.getSubtotal();
             dotz += rent.getDotz();
 
@@ -39,11 +37,8 @@ public class Client {
             amount += currentValue;
             
         }
-        
         result += "Valor total devido: " + amount + endLine;
         result += "Voce acumulou " + dotz + " pontos de alugador frequente";
-        
         return result;
     }
-
 }
